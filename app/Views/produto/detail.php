@@ -8,7 +8,7 @@
                     <a href="<?= base_url('/produtos'); ?>" class="btn btn-primary mb-3"> <i class="material-icons">arrow_back</i> </a>
                 </div>
                 <div class="col-9">
-                    <p class="mt-2"> Produto #<?= $produto['id']; ?> </p>
+                    <p class="mt-2"> Produto </p>
                 </div>
                 <div class="col-2 text-right">
                     <a class="btn btn-sm btn-primary" href="<?= base_url('/produtos/update/' . $produto['id']); ?>">
@@ -29,7 +29,13 @@
 
                 <p> Valor: <b> <?= $produto['valor']; ?> </b></p>
 
-                <p> Categoria: <b> <?= $categoria['nome']; ?> (#<?= $categoria['id']; ?>) </b> </p>
+                <p> Categoria:
+                    <b> <?= $categoria['nome']; ?> </b>
+
+                    <a class="btn btn-light" href="<?= base_url('/categorias/detail/' . $categoria['id']); ?>" target="_blank">
+                        <i class="material-icons">open_in_new</i>
+                    </a>
+                </p>
 
             </div>
         </div>

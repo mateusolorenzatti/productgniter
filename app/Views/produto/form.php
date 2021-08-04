@@ -8,7 +8,7 @@
             <div class="col-11">
 
                 <?php if (isset($produto)) : ?>
-                    <p class="mt-2"> Editar Produto #<?= $produto['id']; ?> </p>
+                    <p class="mt-2"> Editar Produto </p>
 
                 <?php else : ?>
                     <p class="mt-2"> Adicionar Produto </p>

@@ -8,10 +8,20 @@ use App\Models\CategoriaModel;
 class ProdutoController extends BaseController {
 
 	public function index(){
-
 		$produtoModel = new ProdutoModel();
+		$categoriaModel = new CategoriaModel();
 
-		$data['produtos'] = $produtoModel->findAll();
+		$db = db_connect();
+
+		$builder = $db->table('productgniter.produto p');
+		$builder->select('p.*, c.nome as categoria__nome');
+		$builder->join('productgniter.categoria c', 'p.categoria = c.id', 'LEFT');
+
+		$query = $builder->get();
+
+		$data['produtos'] = $query->getResultArray();
+
+		// print_r($query->getResultArray());
 
 		echo view('shared/header.php');
 		echo view('produto/list.php', $data);

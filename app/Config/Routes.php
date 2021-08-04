@@ -42,6 +42,14 @@ $routes->get('produtos/detail/(:segment)', 'ProdutoController::detail/$1');
 $routes->post('produtos/update/', 'ProdutoController::update');
 $routes->post('produtos/add/', 'ProdutoController::save');
 
+$routes->get('categorias/', 'CategoriaController::index');
+$routes->get('categorias/delete/(:segment)', 'CategoriaController::delete/$1');
+$routes->get('categorias/update/(:segment)', 'CategoriaController::edit/$1');
+$routes->get('categorias/add/', 'CategoriaController::create');
+$routes->get('categorias/detail/(:segment)', 'CategoriaController::detail/$1');
+$routes->post('categorias/update/', 'CategoriaController::update');
+$routes->post('categorias/add/', 'CategoriaController::save');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

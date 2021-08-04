@@ -10,6 +10,6 @@ class ProdutoModel extends Model{
 
     protected $primaryKey = 'id';
 
-    protected $allowedFields = ['id', 'nome', 'descricao', 'valor', 'categoria'];
+    protected $allowedFields = ['id', 'nome', 'descricao', 'valor', 'categoria', 'imagem'];
     
 }

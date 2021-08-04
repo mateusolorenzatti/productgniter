@@ -23,7 +23,7 @@
         <div class="card-body">
 
             <?php if (isset($produto)) : ?>
-                <form method="POST" action="<?= base_url('/produtos/update') ?>">
+                <form method="POST" action="<?= base_url('/produtos/update') ?>" enctype="multipart/form-data">
 
                     <input type="hidden" class="form-control" id="id" name="id" value="<?= $produto['id']; ?>">
 
@@ -58,11 +58,18 @@
                         </select>
                     </div>
 
+                    <div class="form-group mb-2">
+                        <label for="imagem" class="form-label"> Imagem </label> <br/>
+                        <input type="file" name="imagem" id="imagem">    
+                        <input type="hidden" name="MAX_FILE_SIZE" value="30000">
+                    </div>
+
                     <button type="submit" class="btn btn-primary"> Salvar </button>
                 </form>
 
             <?php else : ?>
-                <form method="POST" action="<?= base_url('/produtos/add') ?>">
+
+                <form method="POST" action="<?= base_url('/produtos/add') ?>" enctype="multipart/form-data">
                     <div class="form-group mb-2">
                         <label for="nome">Nome </label>
                         <input type="text" class="form-control" id="nome" name="nome" required>
@@ -88,6 +95,12 @@
                             <?php endforeach;
                             endif; ?>
                         </select>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label for="imagem" class="form-label"> Imagem </label> <br/>
+                        <input type="file" name="imagem" id="imagem">    
+                        <input type="hidden" name="MAX_FILE_SIZE" value="30000">
                     </div>
 
                     <button type="submit" class="btn btn-primary"> Salvar </button>

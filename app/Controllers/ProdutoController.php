@@ -53,11 +53,18 @@ class ProdutoController extends BaseController {
 			'categoria' => $this->request->getVar('categoria'),
 		];
 		
-		// print_r($data);
+		$imagem = $this->request->getFile('imagem');
+
+		if ($imagem->isValid()){
+			$newName = $imagem->getRandomName();
+			$imagem->move('./images', $newName);
+
+			$data['imagem'] = $newName;
+		}
 
 		$produtoModel->update($id, $data);
 		
-		return $this->response->redirect('/produtos');
+		return $this->response->redirect('/produtos/detail/'.$id);
 	}
 	
 	public function create(){
@@ -80,7 +87,14 @@ class ProdutoController extends BaseController {
 			'categoria' => $this->request->getVar('categoria'),
 		];
 		
-		// print_r($data);
+		$imagem = $this->request->getFile('imagem');
+
+		if ($imagem->isValid()){
+			$newName = $imagem->getRandomName();
+			$imagem->move('./images', $newName);
+
+			$data['imagem'] = $newName;
+		}
 		
 		$produtoModel->insert($data);
 		

@@ -22,21 +22,31 @@
         </div>
 
         <div class="card">
-            <div class="card-body">
-                <p> Nome: <b> <?= $produto['nome']; ?> </b> </p>
+            <div class="card-body col-12 row">
+                <div class="col-6">
+                    <p> Nome: <b> <?= $produto['nome']; ?> </b> </p>
 
-                <p> Descrição: <b> <?= $produto['descricao']; ?> </b></p>
+                    <p> Descrição: <b> <?= $produto['descricao']; ?> </b></p>
 
-                <p> Valor: <b> <?= $produto['valor']; ?> </b></p>
+                    <p> Valor: <b> <?= $produto['valor']; ?> </b></p>
 
-                <p> Categoria:
-                    <b> <?= $categoria['nome']; ?> </b>
+                    <p> Categoria:
+                        <b> <?= $categoria['nome']; ?> </b>
 
-                    <a class="btn btn-light" href="<?= base_url('/categorias/detail/' . $categoria['id']); ?>" target="_blank">
-                        <i class="material-icons">open_in_new</i>
-                    </a>
-                </p>
-
+                        <a class="btn btn-light" href="<?= base_url('/categorias/detail/' . $categoria['id']); ?>" target="_blank">
+                            <i class="material-icons">open_in_new</i>
+                        </a>
+                    </p>
+                </div>
+                <div class="col-6">
+                    <?php if (isset($produto['imagem'])) : ?>
+                        <img src="<?= '/images/' . $produto['imagem']; ?>" class="img-thumbnail">
+                    <?php else : ?>
+                        <div class="text-center pt-4">
+                            <h4 class="text-muted my-4"> Sem Imagem </h4>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
 
